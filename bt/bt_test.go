@@ -49,12 +49,14 @@ func BenchmarkBinaryTree_Find(b *testing.B) {
 	for i := 0; i < benchmarkElements; i++ {
 		bt.Add(i + 1)
 	}
+	elements := make([]int, 0, b.N)
+	for range b.N {
+		elements = append(elements, getRandomNumber())
+	}
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		ele := getRandomNumber()
-		b.ResetTimer()
-		bt.Find(ele)
+		bt.Find(elements[i])
 	}
 }
 
@@ -63,11 +65,14 @@ func BenchmarkSlice_Find(b *testing.B) {
 	for i := 0; i < benchmarkElements; i++ {
 		slice[i] = i + 1
 	}
+	elements := make([]int, 0, b.N)
+	for range b.N {
+		elements = append(elements, getRandomNumber())
+	}
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		ele := getRandomNumber()
-		b.ResetTimer()
+		ele := elements[i]
 		for j := 0; j < len(slice); j++ {
 			if slice[j] == ele {
 				break
@@ -102,7 +107,7 @@ func ExampleBinaryTree_Print() {
 	// [0		2		4		6	]
 }
 
-func ExampleBinaryTree_Print_Incomplete() {
+func ExampleBinaryTree_Print_incomplete() {
 	binTree := bt.NewBinaryTree(bt.CpFunc[int])
 	binTree.Add(3)
 	binTree.Add(1)

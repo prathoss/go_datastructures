@@ -4,9 +4,9 @@ type Comp uint8
 
 const (
 	// CompEq the elements are equal
-	CompEq Comp = 1
+	CompEq Comp = iota
 	// CompGt the first element is greater than the second one
-	CompGt Comp = 2
+	CompGt
 	// CompLs the first element is lesser than the second one
-	CompLs Comp = 3
+	CompLs
 )

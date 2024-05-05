@@ -3,7 +3,7 @@ package list_test
 import (
 	"testing"
 
-	"go_datastructures/list"
+	"github.com/prathoss/gods/list"
 )
 
 func TestLinkedList_Add(t *testing.T) {

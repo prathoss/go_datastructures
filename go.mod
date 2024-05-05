@@ -1,5 +1,5 @@
 module github.com/prathoss/gods
 
-go 1.18
+go 1.22
 
-require golang.org/x/exp v0.0.0-20220328175248-053ad81199eb // indirect
+require golang.org/x/exp v0.0.0-20240416160154-fe59bbe5cc7f
